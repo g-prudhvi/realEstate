@@ -1,11 +1,14 @@
 from django.db import models
 from datetime import datetime
 from realtors.models import Realtor
+from django.utils.text import slugify
+from django.urls import reverse
 
 
 class Listing(models.Model):
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
@@ -29,3 +32,11 @@ class Listing(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('listing', kwargs={'slug': self.slug})

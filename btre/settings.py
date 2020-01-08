@@ -143,5 +143,9 @@ MESSAGE_TAGS = {
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'prudhvinaidu53@gmail.com'
-EMAIL_HOST_PASSWORD = '#beautiful9'
+EMAIL_HOST_PASSWORD = 'lgksreenamzbljso'
 EMAIL_USE_TLS = True
+
+
+LOGIN_REDIRECT_URL = 'accounts/login/'
+LOGIN_URL = 'login'

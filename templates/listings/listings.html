@@ -43,7 +43,8 @@
                     </div>
                     <div class="card-body">
                         <div class="listing-heading text-center">
-                            <h4 class="text-primary">{{ listing.title }}</h4>
+                            <h4 class="text-primary"><a href="{{ listing.get_absolute_url }}">{{ listing.title }}</a>
+                            </h4>
                             <p>
                                 <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }},
                                 {{listing.zipcode}}</p>
