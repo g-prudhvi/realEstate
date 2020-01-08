@@ -16,7 +16,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 's63_y-$v=hmr30y4$#(k5ef((n&wk4jaybhx51h92f!a8jv2my'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['prudhvis.herokuapp.com', '127.0.0.1', 'localhost']
 
@@ -152,5 +152,17 @@ EMAIL_USE_TLS = True
 
 LOGIN_REDIRECT_URL = 'accounts/login/'
 LOGIN_URL = 'login'
+
+
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 django_heroku.settings(locals())
