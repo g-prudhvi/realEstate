@@ -1,6 +1,7 @@
 
 
 import os
+import django_heroku
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -17,7 +18,7 @@ SECRET_KEY = 's63_y-$v=hmr30y4$#(k5ef((n&wk4jaybhx51h92f!a8jv2my'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['prudhvis.herokuapp.com','127.0.0.1','localhost']
 
 
 # Application definition
@@ -149,3 +150,5 @@ EMAIL_USE_TLS = True
 
 LOGIN_REDIRECT_URL = 'accounts/login/'
 LOGIN_URL = 'login'
+
+django_heroku.settings(locals())
