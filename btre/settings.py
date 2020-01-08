@@ -18,7 +18,7 @@ SECRET_KEY = 's63_y-$v=hmr30y4$#(k5ef((n&wk4jaybhx51h92f!a8jv2my'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['prudhvis.herokuapp.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['prudhvis.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
